@@ -1,0 +1,48 @@
+package seguridad.model;
+
+import java.io.Serializable;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@AllArgsConstructor @NoArgsConstructor @Data @Builder
+@Entity
+@Table(name="PERFILES")
+public class Perfil implements Serializable{
+	
+	
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@Column(name="ID_PERFIL")
+	@GeneratedValue(strategy =GenerationType.IDENTITY )
+	
+	private int idPerfil;
+	private String nombre;
+	public int getIdPerfil() {
+		return idPerfil;
+	}
+	public void setIdPerfil(int idPerfil) {
+		this.idPerfil = idPerfil;
+	}
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	
+	
+
+}
