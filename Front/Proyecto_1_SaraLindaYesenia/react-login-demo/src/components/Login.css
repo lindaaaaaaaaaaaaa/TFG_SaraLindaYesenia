@@ -1,0 +1,409 @@
+@font-face {
+  font-family: "Cormorant";
+  src: url("/Cormorant-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Cormorant";
+  src: url("/Cormorant-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Ablafit";
+  src: url("/Ablafit-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%; /* asegurar altura completa */
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #fff;
+  min-height: 100vh;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column; /* estructura vertical */
+}
+
+/*------------------------------------- NAVEGADOR -------------------------------------*/
+.barra-navegacion {
+  background-color: #f9f7f4;
+  padding: 8px 40px;
+  border-bottom: 2px solid #ddd;
+  grid-template-columns: 1fr auto 1fr;
+  column-gap: 2rem;
+  display: grid;
+  align-items: center;
+  letter-spacing: .4px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transform: translateY(0);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.barra-navegacion.visible {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.enlaces-navegacion {
+  display: flex;
+  gap: 30px;
+  padding: 19px 0;
+}
+
+.enlace {
+  text-decoration: none;
+  color: #333;
+  font-weight: 100;
+  transition: color 0.4s;
+  font-size: 14px;
+}
+
+.enlace:hover {
+  color: #7f7c7c;
+}
+
+.titulo-pagina {
+  flex: 1;
+  text-align: center;
+}
+
+.titulo-pagina h1 {
+  font-family: "Ablafit", sans-serif;
+  margin: 0;
+  font-size: 27px;
+}
+
+.acciones-usuario {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  justify-self: end;
+}
+
+.accion {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+.accion:hover {
+  color: #7f7c7c;
+}
+
+.telefono .texto-telefono {
+  font-size: 14px;
+  color: #333;
+  font-weight: 100;
+}
+
+.separador {
+  width: 1px;
+  height: 24px;
+  background-color: #ccc;
+  margin: 0 8px;
+}
+
+.icono-buscar, .icono-carrito {
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.icono-buscar:hover, .icono-carrito:hover {
+  color: #7f7c7c;
+}
+
+/*------------------------------------- FORMULARIO LOGIN -------------------------------------*/
+.pagina-login {
+  background-color: white;
+  flex: 1; /* ocupa todo el espacio disponible */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-contenedor {
+    width: 85%;
+    max-width: 450px;
+    margin: 60px auto;
+    padding-top: 150px;
+    padding-bottom: 100px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.titulo-login {
+  text-align: center;
+  margin-bottom: 36px;
+  font-size: 48px;
+  letter-spacing: -.8px;
+  font-family: 'Cormorant', sans-serif;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.login-label {
+  font-family: "Inter", sans-serif;
+  display: block;
+  margin-top: 16px;
+  margin-bottom: 5px;
+  font-weight: normal;
+  text-align: center;
+}
+
+.login-input {
+  width: 446px;
+  /*padding: 10px 12px;*/
+  border: 1px solid #3d3d3dcc;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #fff;
+  color: #3d3d3dcc;
+  height: 50px;
+  padding: 1.5rem;
+  letter-spacing: .1px;
+  padding-left: 15px;
+}
+
+.login-boton {
+  margin-top: 40px;
+  width: 100%;
+  height: 40px;
+  padding: 12px;
+  background-color: #fff;
+  font-weight: normal;
+  border: 1px solid #000;
+  border-radius: 3px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.3s ease;
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.login-boton::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  transition: left 0.3s ease;
+  z-index: 0;
+}
+
+.login-boton:hover::before {
+  left: 0;
+}
+
+.login-boton span {
+  position: relative;
+  z-index: 1;
+}
+
+.login-boton:hover {
+  color: #fff;
+}
+
+.error {
+  color: rgb(185, 37, 37);
+  font-size: 14px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.login-registrar {
+  margin-top: 20px;
+  text-align: center;
+  font-weight: 500;
+  letter-spacing: .1px;
+}
+
+.login-registrar a {
+    color:#2c2c2c;
+    text-decoration: none;
+    font-size: 16px;
+    text-decoration: underline;
+    font-weight: bolder;
+}
+
+.login-registrar a:hover {
+  color: #7f7c7c;
+}
+
+/*------------------------------------- FOOTER -------------------------------------*/
+.footer {
+  background-color: #f0f0f0;
+  padding: 40px 20px;
+  text-align: center;
+  margin-top: auto; /* empuja el footer al final */
+}
+
+.contenedor-footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  gap: 40px;
+  margin-bottom: 30px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.columna-footer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 200px;
+  max-width: 260px;
+  margin: 20px 0;
+}
+
+.columna-footer:last-of-type {
+  flex: 2;
+  max-width: 400px;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.titulo-footer {
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  font-family: "Cormorant", sans-serif;
+}
+
+.enlace-footer {
+  font-size: 14px;
+  color: #333;
+  margin: 6px 0;
+  text-align: center;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.enlace-footer:hover {
+  color: #7f7c7c;
+}
+
+.logos-footer {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.logos-footer img {
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+}
+
+.logo-footer {
+  width: 120px;
+  height: auto;
+  font-size: 36px;
+  font-family: "Ablafit", sans-serif;
+}
+
+.footer-final {
+  border-top: 1px solid #ccc;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.texto-final-footer {
+  font-size: 14px;
+  color: #555;
+  margin-top: 20px;
+  text-align: center;
+}
+
+
+/*------------------------------------- RESPONSIVE -------------------------------------*/
+/* -------- Tablet -------- */
+@media (max-width: 1300px) {
+  .barra-navegacion {
+    grid-template-columns: 1fr 1fr; /* dos columnas: título y acciones */
+    padding: 12px 20px;
+  }
+
+  .titulo-pagina {
+    text-align: left; /* título a la izquierda */
+  }
+
+  .acciones-usuario {
+    justify-self: end; /* acciones a la derecha */
+  }
+
+  .enlaces-navegacion {
+    grid-column: 1 / -1; /* que ocupe toda la fila */
+    justify-content: center;
+    gap: 20px;
+    padding: 10px 0;
+  }
+}
+
+/* -------- Móvil -------- */
+@media (max-width: 600px) {
+  .barra-navegacion {
+    grid-template-columns: 1fr auto; /* título y acciones */
+    padding: 10px 16px;
+  }
+
+  .titulo-pagina {
+    text-align: left;
+  }
+
+  .acciones-usuario {
+    justify-self: end;
+    gap: 12px;
+  }
+
+  .enlaces-navegacion {
+    display: none; /* ocultar enlaces en móvil */
+  }
+
+  /* opcional: botón hamburguesa para mostrar enlaces */
+  .menu-toggle {
+    display: block;
+    cursor: pointer;
+    font-size: 20px;
+    margin-left: 12px;
+  }
+
+  /* cuando el menú esté activo */
+  .enlaces-navegacion.activo {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: #f9f7f4;
+    padding: 12px;
+  }
+}
